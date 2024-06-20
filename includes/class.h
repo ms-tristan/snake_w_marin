@@ -7,9 +7,8 @@
     {
     public:
         Apple();
-        void place_apple();
-        void eat_apple();
-        void check_apple();
+        Apple(int x, int y);
+        void place_apple(Board board);
     private:
         vector_t apple_pos;
     };
@@ -20,7 +19,7 @@
         void myFunction();
         std::vector<std::string> tab;
     private:
+        int score;
         Snake mySnake;
         Apple myApple;
-        int myVariable;
     };
