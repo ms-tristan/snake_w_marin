@@ -23,11 +23,11 @@ void Snake::move() {
 }
 
 void Snake::change_direction(vector_t new_direction) {
-        direction = new_direction;
+    direction = new_direction;
 }
 
 vector_t Snake::get_position(void) {
-        return body[0];
+    return body[0];
 }
 
 bool Snake::onBody(vector_t target) {
