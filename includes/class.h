@@ -1,7 +1,7 @@
 # pragma once
 #include <vector>
 #include <string>
-#include "./includes/snake.h"
+#include "./snake.h"
 
     class Snake {
 
@@ -14,7 +14,7 @@
         void move();
         void change_direction(vector_t new_direction);
         vector_t get_position(void);
-        vector<vector_t> get_body();
+        bool onBody(vector_t target);
         void grow();
     };
 
