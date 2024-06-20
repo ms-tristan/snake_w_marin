@@ -6,9 +6,9 @@ using namespace std;
 
 
 Snake::Snake(vector_t pos = {0, 0}, vector_t dir = {1, 0}) {
-        vector_t head = {0, };
+        vector_t head = pos;
         body.push_back(head);
-        direction = {1, };
+        direction = dir;
 }
 
 void Snake::move() {

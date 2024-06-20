@@ -6,7 +6,9 @@ CXX	=	g++
 CXXFLAGS = -Wall -Wextra -std=c++11
 
 
-SRCS	=	sources/main.cpp 		\
+SRCS	=	sources/main.cpp 			\
+			sources/classes/apple.cpp	\
+			sources/classes/snake.cpp	\
 
 
 OBJS	=	$(SRCS:.cpp=.o)
