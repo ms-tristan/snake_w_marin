@@ -8,7 +8,7 @@ using namespace std;
     class Snake {
 
     private:
-        vector<vector_t> body;
+        std::vector<vector_t> body;
         vector_t direction;
         bool is_growing = false;
     public:
@@ -28,6 +28,7 @@ using namespace std;
         Apple();
         Apple(int x, int y);
         void place_apple(Board board);
+        vector_t getApplePos();
     private:
         vector_t apple_pos;
     };
@@ -37,8 +38,8 @@ using namespace std;
         Board();
         void myFunction();
         std::vector<std::string> tab;
-    private:
-        int score;
         Snake mySnake;
         Apple myApple;
+    private:
+        int score;
     };

@@ -1,7 +1,5 @@
 
 
-        // Apple();
-        // void place_apple();
 #include "../../includes/class.h"
 
 Apple::Apple()
@@ -18,10 +16,16 @@ Apple::Apple(int x, int y)
 
 void Apple::place_apple(Board board)
 {
-    // fait attention si la pomme est sur le serpent
-    // fait attention taille du tableau
-    apple_pos.x = rand() % 1;
-    apple_pos.y = rand() % 1;
-    if (board.tab[apple_pos.y][apple_pos.x] == 'O')
+    apple_pos.x = rand() % 19;
+    apple_pos.y = rand() % 19;
+
+    if (board.mySnake.onBody(apple_pos) == true)
         place_apple(board);
+    else
+        board.tab[apple_pos.y][apple_pos.x] = 'A';
+}
+
+vector_t Apple::getApplePos()
+{
+    return apple_pos;
 }
