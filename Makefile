@@ -3,12 +3,14 @@ TARGET	=	snake
 
 CXX	=	g++
 
-CXXFLAGS = -Wall -Wextra -std=c++11
+CXXFLAGS = -Wall -Wextra -std=c++11 -lncurses
 
 
 SRCS	=	sources/main.cpp 			\
+			sources/gameLoop.cpp 		\
 			sources/classes/apple.cpp	\
 			sources/classes/snake.cpp	\
+			sources/classes/board.cpp 	\
 
 
 OBJS	=	$(SRCS:.cpp=.o)

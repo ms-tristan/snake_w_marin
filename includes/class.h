@@ -4,7 +4,8 @@
 #include "./snake.h"
 
 using namespace std;
-
+    class Apple;
+    class Board;
     class Snake {
 
     private:
@@ -13,7 +14,7 @@ using namespace std;
         bool is_growing = false;
     public:
         Snake(vector_t pos, vector_t dir);
-        void move();
+        void move(Board *board);
         void change_direction(vector_t new_direction);
         vector_t get_position(void);
         bool onBody(vector_t target);
@@ -21,13 +22,12 @@ using namespace std;
     };
 
 
-    class Board;
     class Apple
     {
     public:
         Apple();
         Apple(int x, int y);
-        void place_apple(Board board);
+        void place_apple(Board *board);
         vector_t getApplePos();
     private:
         vector_t apple_pos;
@@ -36,10 +36,12 @@ using namespace std;
     class Board {
     public:
         Board();
-        void myFunction();
+        void printBoard();
+        void gameLoop();
+        void captureInput();
+        void update(Board *board);
         std::vector<std::string> tab;
-        Snake mySnake;
-        Apple myApple;
-    private:
+        Snake snake;
+        Apple apple;
         int score;
     };

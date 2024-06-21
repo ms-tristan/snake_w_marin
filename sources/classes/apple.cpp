@@ -14,15 +14,17 @@ Apple::Apple(int x, int y)
     apple_pos.y = y;
 }
 
-void Apple::place_apple(Board board)
+void Apple::place_apple(Board *board)
 {
     apple_pos.x = rand() % 19;
     apple_pos.y = rand() % 19;
 
-    if (board.mySnake.onBody(apple_pos) == true)
+    if (board->snake.onBody(apple_pos) == true)
         place_apple(board);
-    else
-        board.tab[apple_pos.y][apple_pos.x] = 'A';
+    else {
+        board->tab[apple_pos.y][apple_pos.x] = '@';
+
+    }
 }
 
 vector_t Apple::getApplePos()
