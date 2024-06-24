@@ -34,12 +34,17 @@ void Board::captureInput()
     }
 }
 
-void Board::printBoard()
+void Board::InitNcurse()
 {
     initscr();            // Initialise l'écran
     cbreak();             // Désactive le buffering de ligne
     keypad(stdscr, TRUE); // Active la capture des touches spéciales
     noecho();             // Empêche l'affichage des touches pressées
+    curs_set(FALSE); // Cacher le curseur
+}
+
+void Board::printBoard()
+{
     int rows, cols;
     getmaxyx(stdscr, rows, cols); // Get the dimensions of the terminal window
 

@@ -36,6 +36,7 @@ using namespace std;
     class Board {
     public:
         Board();
+        void InitNcurse();
         void printBoard();
         void gameLoop();
         void captureInput();

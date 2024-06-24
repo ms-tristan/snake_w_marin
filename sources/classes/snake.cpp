@@ -8,7 +8,9 @@ using namespace std;
 
 Snake::Snake(vector_t pos = {0, 0}, vector_t dir = {1, 0}) {
     vector_t head = pos;
+    vector_t first_body_part = {head.x - dir.x, head.y - dir.y};
     body.push_back(head);
+    body.push_back(first_body_part);
     direction = dir;
 }
 

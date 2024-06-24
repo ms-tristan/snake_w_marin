@@ -6,6 +6,7 @@
 
 void Board::gameLoop()
 {
+    this->InitNcurse();
     while (1) {
         this->update(this);
         this->printBoard();
