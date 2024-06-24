@@ -40,7 +40,7 @@ void Board::InitNcurse()
     cbreak();             // Désactive le buffering de ligne
     keypad(stdscr, TRUE); // Active la capture des touches spéciales
     noecho();             // Empêche l'affichage des touches pressées
-    curs_set(FALSE); // Cacher le curseur
+    curs_set(FALSE);      // Cacher le curseur
 }
 
 void Board::printBoard()
@@ -55,7 +55,7 @@ void Board::printBoard()
     int startCol = (cols - boardCols) / 2; // Calculate the starting column for printing
 
     mvprintw(startRow - 3, startCol, "+----------------------+"); // Print the bottom border
-    mvprintw(startRow -2, startCol, "|       score = %i      |", this->score); // Print the bottom border
+    mvprintw(startRow - 2, startCol, "|       score = %i      |", this->score); // Print the bottom border
     mvprintw(startRow - 1, startCol, "+----------------------+"); // Print the top border
 
     for (int i = 0; i < boardRows; i++)

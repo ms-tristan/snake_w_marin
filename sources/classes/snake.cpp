@@ -6,12 +6,13 @@
 #include <ncurses.h>
 using namespace std;
 
-Snake::Snake(vector_t pos = {0, 0}, vector_t dir = {1, 0}) {
+Snake::Snake(vector_t pos = {0, 0}, vector_t dir = {0, 1}) {
     vector_t head = pos;
     vector_t first_body_part = {head.x - dir.x, head.y - dir.y};
     body.push_back(head);
     body.push_back(first_body_part);
-    direction = dir;
+    direction = vector_t{0, 0};
+    // direction = dir;
 }
 
 bool checkOutsideMap(vector_t *vector)
@@ -20,10 +21,17 @@ bool checkOutsideMap(vector_t *vector)
         return true;
     return false;
 }
+
 void Snake::move(Board *board) {
     vector_t head = body[0];
     vector_t new_head = {head.x + direction.x, head.y + direction.y};
 
+    if (this->direction.x == 0 && this->direction.y == 0) {
+        for (vector_t part : body)
+            board->tab[part.y][part.x] = '#';
+        board->tab[body.begin()->y][body.begin()->x] = 'O';
+        return;
+    }
     if (checkOutsideMap(&new_head) || onBody(new_head))
     {
         endwin();
@@ -38,6 +46,9 @@ void Snake::move(Board *board) {
 }
 
 void Snake::change_direction(vector_t new_direction) {
+    if ((this->direction.x != 0 && this->direction.x == -new_direction.x)
+    || (this->direction.y != 0 && this->direction.y == -new_direction.y))
+        return;
     direction = new_direction;
 }
 
