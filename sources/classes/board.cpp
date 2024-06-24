@@ -64,8 +64,8 @@ void Board::printBoard()
 
 void Board::update(Board *board)
 {
-    this->snake.move(board);
     this->captureInput();
+    this->snake.move(board);
     if (this->snake.get_position().x == this->apple.getApplePos().x && this->snake.get_position().y == this->apple.getApplePos().y)
     {
         this->score++;
